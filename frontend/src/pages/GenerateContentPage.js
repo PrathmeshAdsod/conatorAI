@@ -239,7 +239,7 @@ const GenerateContentPage = () => {
         justifyContent: 'center', 
         alignItems: 'center', 
         height: '100vh',
-        background: 'linear-gradient(135deg, #e3f2fd 60%, #fff 100%)'
+        background: '#ffffff'
       }}>
         <CircularProgress />
       </Box>
@@ -250,15 +250,17 @@ const GenerateContentPage = () => {
     <Box sx={{ 
       minHeight: '100vh',
       width: '100%',
-      background: 'linear-gradient(135deg, #1a237e 0%, #283593 100%)',
+      background: '#ffffff',
       display: 'flex',
-      flexDirection: 'column'
+      flexDirection: 'column',
+      alignItems: 'center'
     }}>
       <Box sx={{
         width: '100%',
-        height: '100%',
+        maxWidth: '1200px',
         display: 'flex',
         flexDirection: 'column',
+        alignItems: 'center',
         p: { xs: 2, md: 4 }
       }}>
         <Box sx={{ 
@@ -266,22 +268,22 @@ const GenerateContentPage = () => {
           justifyContent: 'space-between', 
           alignItems: 'center', 
           mb: 4,
-          borderBottom: '1px solid rgba(255,255,255,0.1)',
-          pb: 2
+          borderBottom: '1px solid rgba(0,0,0,0.1)',
+          pb: 2,
+          width: '100%'
         }}>
           <Typography variant="h3" sx={{ 
-            color: '#ffffff', 
+            color: '#000000', 
             fontWeight: 700, 
-            letterSpacing: 1.2,
-            textShadow: '0 2px 4px rgba(0,0,0,0.2)'
+            letterSpacing: 1.2
           }}>
             conatorAI Content Studio
           </Typography>
           {user && (
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-              <img src={user.photo} alt={user.name} style={{ width: 45, height: 45, borderRadius: '50%', border: '2px solid #fff' }} />
+              <img src={user.photo} alt={user.name} style={{ width: 45, height: 45, borderRadius: '50%', border: '2px solid #fff', boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }} />
               <Box>
-                <Typography variant="subtitle1" sx={{ fontWeight: 600, color: '#fff' }}>{user.name}</Typography>
+                <Typography variant="subtitle1" className="user-name" sx={{ fontWeight: 600, color: '#000000' }}>{user.name}</Typography>
                 <Button size="small" variant="contained" color="secondary" onClick={handleSignOut}>Sign Out</Button>
               </Box>
             </Box>
@@ -292,18 +294,19 @@ const GenerateContentPage = () => {
           activeStep={activeStep} 
           sx={{ 
             mb: 5,
+            width: '100%',
             '& .MuiStepLabel-label': {
-              color: '#fff',
+              color: '#0000ff',
               fontSize: '1.1rem',
               mt: 1
             },
             '& .MuiStepIcon-root': {
               fontSize: 32,
               '&.Mui-active': {
-                color: '#64ffda'
+                color: '#0000ff'
               },
               '&.Mui-completed': {
-                color: '#69f0ae'
+                color: '#000000'
               }
             }
           }} 
@@ -317,10 +320,10 @@ const GenerateContentPage = () => {
         </Stepper>
 
         {activeStep === 0 && (
-          <form onSubmit={handleGenerate}>
-            <Grid container spacing={3}>
-              <Grid item xs={12}>
-                <Typography variant="h6" sx={{ color: '#fff', mb: 1, fontWeight: 500 }}>
+          <form onSubmit={handleGenerate} style={{ width: '100%', maxWidth: '800px' }}>
+            <Grid container spacing={3} sx={{ justifyContent: 'center', alignItems: 'center' }}>
+              <Grid item xs={12} sx={{ textAlign: 'center' }}>
+                <Typography variant="h6" sx={{ color: '#000000', mb: 1, fontWeight: 500 }}>
                   What would you like to create today?
                 </Typography>
                 <TextField
@@ -337,14 +340,25 @@ const GenerateContentPage = () => {
                     '& .MuiOutlinedInput-root': {
                       backgroundColor: 'rgba(255, 255, 255, 0.9)',
                       fontSize: '1.1rem',
+                      borderRadius: '12px',
+                      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
+                      transition: 'all 0.3s ease',
                       '& fieldset': {
-                        borderColor: 'transparent'
+                        borderColor: 'rgba(0, 0, 0, 0.15)',
+                        borderWidth: '1px'
                       },
                       '&:hover fieldset': {
-                        borderColor: 'rgba(255, 255, 255, 0.5)'
+                        borderColor: 'rgba(0, 0, 255, 0.3)'
                       },
                       '&.Mui-focused fieldset': {
-                        borderColor: '#64ffda'
+                        borderColor: '#0000ff',
+                        borderWidth: '2px'
+                      },
+                      '&:hover': {
+                        boxShadow: '0 6px 16px rgba(0, 0, 0, 0.12)'
+                      },
+                      '&.Mui-focused': {
+                        boxShadow: '0 8px 24px rgba(0, 0, 255, 0.15)'
                       }
                     }
                   }}
@@ -426,7 +440,6 @@ const GenerateContentPage = () => {
                 <Button 
                   type="submit" 
                   variant="contained" 
-                  color="secondary" 
                   size="large" 
                   fullWidth
                   disabled={isGenerating}
@@ -436,11 +449,10 @@ const GenerateContentPage = () => {
                     fontWeight: 600,
                     fontSize: '1.2rem',
                     borderRadius: 2,
-                    background: 'linear-gradient(45deg, #ff6f00 30%, #ffca28 90%)',
-                    boxShadow: '0 4px 20px rgba(255, 111, 0, 0.3)',
+                    backgroundColor: '#0000ff',
+                    color: '#ffffff',
                     '&:hover': {
-                      background: 'linear-gradient(45deg, #ff8f00 30%, #ffd54f 90%)',
-                      boxShadow: '0 6px 25px rgba(255, 111, 0, 0.4)'
+                      backgroundColor: '#0000cc'
                     }
                   }}
                 >
@@ -458,17 +470,19 @@ const GenerateContentPage = () => {
               onChange={handleTabChange} 
               sx={{ 
                 mb: 3,
+                width: '100%',
+                maxWidth: '800px',
                 '& .MuiTab-root': {
-                  color: 'rgba(255, 255, 255, 0.7)',
+                  color: '#000000',
                   fontSize: '1rem',
                   fontWeight: 500,
                   py: 1.5
                 },
                 '& .Mui-selected': {
-                  color: '#64ffda !important'
+                  color: '#0000ff !important'
                 },
                 '& .MuiTabs-indicator': {
-                  backgroundColor: '#64ffda',
+                  backgroundColor: '#0000ff',
                   height: 3
                 }
               }}
@@ -481,16 +495,19 @@ const GenerateContentPage = () => {
               p: 3, 
               borderRadius: 2, 
               mb: 4, 
-              bgcolor: 'rgba(255, 255, 255, 0.95)',
+              bgcolor: '#ffffff',
               boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
               maxHeight: '60vh',
-              overflow: 'auto'
+              overflow: 'auto',
+              width: '100%',
+              maxWidth: '800px'
             }}>
               <Typography variant="body1" sx={{ 
                 whiteSpace: 'pre-wrap', 
                 lineHeight: 1.9,
                 fontSize: '1.05rem',
-                color: '#212121'
+                color: '#000000',
+                textAlign: 'center'
               }}>
                 {activeTab === 0 ? aiResponse : refinedResponse}
               </Typography>
@@ -533,11 +550,13 @@ const GenerateContentPage = () => {
               <Box sx={{ 
                 mb: 4, 
                 p: 3, 
-                bgcolor: 'rgba(13, 71, 161, 0.8)', 
+                bgcolor: '#ffffff', 
                 borderRadius: 2,
-                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)'
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
+                width: '100%',
+                maxWidth: '800px'
               }}>
-                <Typography variant="h6" sx={{ mb: 3, color: '#fff', fontWeight: 500 }}>Content Analytics</Typography>
+                <Typography variant="h6" sx={{ mb: 3, color: '#0000ff', fontWeight: 500, textAlign: 'center' }}>Content Analytics</Typography>
                 <Grid container spacing={3}>
                   {[
                     { label: 'Word Count', value: analytics.wordCount },
@@ -598,13 +617,13 @@ const GenerateContentPage = () => {
         
         {activeStep === 2 && aiResponse && (
           <Box sx={{ mt: 4 }}>
-            <Typography variant="h5" sx={{ mb: 3, color: '#fff', fontWeight: 500 }}>
+            <Typography variant="h5" sx={{ mb: 3, color: '#000000', fontWeight: 500, textAlign: 'center' }}>
               How would you like to improve your content?
             </Typography>
             
-            <Box sx={{ mb: 4, p: 3, bgcolor: 'rgba(255, 255, 255, 0.05)', borderRadius: 2 }}>
-              <Typography variant="subtitle1" sx={{ mb: 2, color: '#64ffda' }}>Quick Feedback Options:</Typography>
-              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
+            <Box sx={{ mb: 4, p: 3, bgcolor: '#ffffff', borderRadius: 2, width: '100%', maxWidth: '800px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <Typography variant="subtitle1" sx={{ mb: 2, color: '#0000ff', textAlign: 'center' }}>Quick Feedback Options:</Typography>
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, justifyContent: 'center' }}>
                 {feedbackOptions.map((option, index) => (
                   <Chip 
                     key={index} 
@@ -614,11 +633,11 @@ const GenerateContentPage = () => {
                       fontSize: '0.95rem',
                       py: 2.5,
                       px: 1,
-                      bgcolor: selectedFeedback.includes(option) ? 'rgba(100, 255, 218, 0.2)' : 'rgba(255, 255, 255, 0.1)',
-                      color: selectedFeedback.includes(option) ? '#64ffda' : '#fff',
-                      border: selectedFeedback.includes(option) ? '1px solid #64ffda' : '1px solid rgba(255, 255, 255, 0.2)',
+                      bgcolor: selectedFeedback.includes(option) ? 'rgba(0, 0, 255, 0.1)' : '#ffffff',
+                      color: selectedFeedback.includes(option) ? '#0000ff' : '#000000',
+                      border: selectedFeedback.includes(option) ? '1px solid #0000ff' : '1px solid rgba(0, 0, 0, 0.2)',
                       '&:hover': {
-                        bgcolor: 'rgba(100, 255, 218, 0.1)',
+                        bgcolor: 'rgba(0, 0, 255, 0.05)',
                       }
                     }}
                     onClick={() => handleFeedbackSelect(option)}
@@ -639,51 +658,64 @@ const GenerateContentPage = () => {
                 mb: 4,
                 '& .MuiOutlinedInput-root': {
                   backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                  borderRadius: 2,
+                  borderRadius: '12px',
+                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
+                  transition: 'all 0.3s ease',
                   '& fieldset': {
-                    borderColor: 'transparent'
+                    borderColor: 'rgba(0, 0, 0, 0.15)',
+                    borderWidth: '1px'
                   },
                   '&:hover fieldset': {
-                    borderColor: 'rgba(255, 255, 255, 0.5)'
+                    borderColor: 'rgba(0, 0, 255, 0.3)'
                   },
                   '&.Mui-focused fieldset': {
-                    borderColor: '#64ffda'
+                    borderColor: '#0000ff',
+                    borderWidth: '2px'
+                  },
+                  '&:hover': {
+                    boxShadow: '0 6px 16px rgba(0, 0, 0, 0.12)'
+                  },
+                  '&.Mui-focused': {
+                    boxShadow: '0 8px 24px rgba(0, 0, 255, 0.15)'
                   }
                 }
               }}
             />
             
-            <Button 
-              variant="contained" 
-              onClick={handleRefine}
-              disabled={isGenerating || (selectedFeedback.length === 0 && !feedback)}
-              sx={{ 
-                py: 2,
-                px: 4, 
-                fontWeight: 600,
-                fontSize: '1.1rem',
-                borderRadius: 2,
-                background: 'linear-gradient(45deg, #00bcd4 30%, #64ffda 90%)',
-                boxShadow: '0 4px 20px rgba(0, 188, 212, 0.3)',
-                '&:hover': {
-                  background: 'linear-gradient(45deg, #00acc1 30%, #4effe3 90%)',
-                  boxShadow: '0 6px 25px rgba(0, 188, 212, 0.4)'
-                }
-              }}
-            >
-              {isGenerating ? <CircularProgress size={24} /> : 'Refine Content'}
-            </Button>
+            <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+              <Button 
+                variant="contained" 
+                onClick={handleRefine}
+                disabled={isGenerating || (selectedFeedback.length === 0 && !feedback)}
+                sx={{ 
+                  py: 2,
+                  px: 4, 
+                  fontWeight: 600,
+                  fontSize: '1.1rem',
+                  borderRadius: 2,
+                  backgroundColor: '#0000ff',
+                  color: '#ffffff',
+                  '&:hover': {
+                    backgroundColor: '#0000cc',
+                  }
+                }}
+              >
+                {isGenerating ? <CircularProgress size={24} /> : 'Refine Content'}
+              </Button>
+            </Box>
           </Box>
         )}
         
         {changelog.length > 0 && (
           <Box sx={{ mt: 4 }}>
-            <Typography variant="h6" sx={{ mb: 2, color: '#fff', fontWeight: 500 }}>Revision History</Typography>
+            <Typography variant="h6" sx={{ mb: 2, color: '#000000', fontWeight: 500, textAlign: 'center' }}>Revision History</Typography>
             <Box sx={{ 
               borderRadius: 2, 
               p: 3,
-              bgcolor: 'rgba(255, 255, 255, 0.95)',
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
+              bgcolor: '#ffffff',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+              width: '100%',
+              maxWidth: '800px'
             }}>
               {changelog.map((log, index) => (
                 <Box key={index} sx={{ 
@@ -722,11 +754,11 @@ const GenerateContentPage = () => {
         sx={{ 
           mt: 3,
           mb: 2,
-          color: 'rgba(255, 255, 255, 0.7)',
+          color: '#0000ff',
           fontSize: '1rem',
           '&:hover': {
-            color: '#fff',
-            bgcolor: 'rgba(255, 255, 255, 0.1)'
+            color: '#0000cc',
+            bgcolor: 'rgba(0, 0, 255, 0.05)'
           }
         }}
         startIcon={<Box sx={{ fontSize: '1.5rem' }}>←</Box>}

@@ -1,13 +1,83 @@
 /* App.css */
-.MuiButton-root {
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Global Font Settings */
+body, html {
+  font-family: 'Poppins', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
+/* Button Styling */
+.MuiButton-root {
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+
+/* Paper/Card Styling */
 .MuiPaper-root {
   transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1), transform 0.3s cubic-bezier(.25,.8,.25,1);
+  border-radius: 12px !important;
 }
 
 .MuiPaper-root:hover {
   box-shadow: 0 8px 32px rgba(25, 118, 210, 0.2) !important;
   transform: translateY(-10px) scale(1.03) !important;
+}
+
+/* Input Field Styling */
+.MuiOutlinedInput-root {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.3s ease !important;
+}
+
+.MuiOutlinedInput-root:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12) !important;
+}
+
+.MuiOutlinedInput-root.Mui-focused {
+  box-shadow: 0 8px 24px rgba(0, 0, 255, 0.15) !important;
+}
+
+/* Typography Styling */
+.MuiTypography-root {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Fix for Google Login User Name - Make it black */
+.user-name {
+  color: #000000 !important;
+  font-weight: 600 !important;
+}
+
+/* Login Page Styling */
+.login-paper {
+  background-color: white !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
+  padding: 2.5rem !important;
+  max-width: 400px !important;
+  width: 90% !important;
+}
+
+.login-title {
+  color: #1976d2 !important;
+  font-weight: 700 !important;
+  margin-bottom: 2rem !important;
+  font-size: 1.8rem !important;
+}
+
+.login-button {
+  padding: 12px 24px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  text-transform: none !important;
+  font-size: 1rem !important;
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.25) !important;
+}
+
+.login-button:hover {
+  box-shadow: 0 6px 16px rgba(25, 118, 210, 0.35) !important;
+  transform: translateY(-2px) !important;
 }
