@@ -51,23 +51,40 @@ const LandingPage = () => {
       overflow: 'hidden',
     }}>
       <Container maxWidth="md">
-        <Typography
-          variant="h2"
-          sx={{
-            fontWeight: 700,
-            mb: 2,
-            color: 'transparent',
-            background: 'linear-gradient(90deg, #fff, #90caf9, #1976d2, #fff)',
-            backgroundSize: '200% 200%',
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            animation: `${gradientText} 4s linear infinite alternate`,
-            textShadow: '0 2px 8px #1976d2',
-          }}
-        >
-          conatorAI
-        </Typography>
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mb: 4, width: '100%' }}>
+          {/* App Logo SVG */}
+          <img src="/conatorai-logo.svg" alt="conatorAI logo" style={{ width: 90, marginBottom: 18 }} />
+          {/* Animated conatorAI heading */}
+          <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mb: 2 }}>
+            {Array.from('conatorAI').map((char, idx) => (
+              <span
+                key={idx}
+                style={{
+                  display: 'inline-block',
+                  fontFamily: 'Poppins, Roboto, Arial, sans-serif',
+                  fontWeight: 800,
+                  fontSize: '3.2rem',
+                  color: '#111',
+                  letterSpacing: '0.18em',
+                  marginRight: idx !== 7 ? '0.08em' : 0,
+                  animation: `bounceUp 3.8s ${idx * 0.32}s infinite cubic-bezier(.68,-0.55,.27,1.55)`,
+                  textShadow: '0 4px 24px rgba(0,0,0,0.08)',
+                }}
+              >
+                {char}
+              </span>
+            ))}
+          </Box>
+        </Box>
+        <style>
+          {`
+            @keyframes bounceUp {
+              0%, 100% { transform: translateY(0); }
+              14% { transform: translateY(-18px); }
+              28% { transform: translateY(0); }
+            }
+          `}
+        </style>
         <Typography variant="h5" sx={{ mb: 4, color: '#e3f2fd' }}>
           Multi-Agent Content Platform
         </Typography>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mainGradient" x1="0" y1="0" x2="96" y2="96" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1976d2"/>
+      <stop offset="100%" stop-color="#64b5f6"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#1976d2" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="96" height="96" rx="24" fill="url(#mainGradient)"/>
+  <circle cx="48" cy="48" r="38" fill="#fff" filter="url(#shadow)"/>
+  <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-family="'Poppins', 'Roboto', Arial, sans-serif" font-size="38" font-weight="bold" fill="#1976d2" letter-spacing="4">C</text>
+  <text x="50%" y="75%" text-anchor="middle" font-family="'Poppins', 'Roboto', Arial, sans-serif" font-size="14" font-weight="600" fill="#1976d2" letter-spacing="2">AI</text>
+</svg>
