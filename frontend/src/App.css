@@ -1,0 +1,13 @@
+/* App.css */
+.MuiButton-root {
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.MuiPaper-root {
+  transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1), transform 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.MuiPaper-root:hover {
+  box-shadow: 0 8px 32px rgba(25, 118, 210, 0.2) !important;
+  transform: translateY(-10px) scale(1.03) !important;
+}
